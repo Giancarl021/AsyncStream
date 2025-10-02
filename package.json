@@ -4,6 +4,9 @@
     "description": "Tools for dealing with streaming data from AsyncIterableIterators",
     "type": "module",
     "main": "lib/index.js",
+    "files": [
+        "lib/**/*"
+    ],
     "scripts": {
         "format": "prettier -w .",
         "build": "tsc -p tsconfig.lib.json && rollup -c",
