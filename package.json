@@ -1,0 +1,50 @@
+{
+    "name": "@giancarl021/async-stream",
+    "version": "0.1.0",
+    "description": "Tools for dealing with streaming data from AsyncIterableIterators",
+    "type": "module",
+    "main": "lib/index.js",
+    "scripts": {
+        "format": "prettier -w .",
+        "build": "tsc -p tsconfig.lib.json && rollup -c",
+        "test": "cross-env NODE_OPTIONS=\"--no-warnings --experimental-vm-modules\" jest",
+        "test:coverage": "cross-env NODE_OPTIONS=\"--no-warnings --experimental-vm-modules\" jest --coverage"
+    },
+    "engines": {
+        "node": ">=22.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Giancarl021/AsyncStream.git"
+    },
+    "keywords": [
+        "async",
+        "iterable",
+        "iterator"
+    ],
+    "author": "Giancarlo Fontela da Luz <gian.f.luz@hotmail.com>",
+    "license": "MIT",
+    "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a",
+    "devDependencies": {
+        "@babel/core": "^7.28.4",
+        "@babel/plugin-transform-modules-commonjs": "^7.27.1",
+        "@jest/globals": "^30.2.0",
+        "@rollup/plugin-typescript": "^12.1.4",
+        "@types/node": "^24.6.2",
+        "babel-jest": "^30.2.0",
+        "cross-env": "^10.1.0",
+        "husky": "^9.1.7",
+        "jest": "^30.2.0",
+        "prettier": "^3.6.2",
+        "rollup": "^4.52.3",
+        "rollup-plugin-delete": "^3.0.1",
+        "rollup-plugin-node-externals": "^8.1.1",
+        "ts-jest": "^29.4.4",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.8.1",
+        "typescript": "^5.9.3"
+    },
+    "resolutions": {
+        "glob": "^9.0.0"
+    }
+}
