@@ -26,6 +26,17 @@ export default class AsyncStream<T = unknown>
     }
 
     /**
+     * Creates an AsyncStream instance that yields no items.
+     * @typeParam T The type of items in the async generator.
+     * @returns A new instance of AsyncStream that yields no items.
+     */
+    public static empty<T = unknown>(): AsyncStream<T> {
+        async function* emptyGenerator() {}
+
+        return new AsyncStream<T>(emptyGenerator());
+    }
+
+    /**
      * Returns the default async iterator for the object.
      * @returns The async iterable iterator itself.
      * @see {@link Symbol.asyncIterator}

@@ -36,6 +36,22 @@ describe('AsyncStream', () => {
         });
     });
 
+    test('Should create an empty AsyncStream', async () => {
+        const stream = AsyncStream.empty<number>();
+
+        await expect(stream.collect()).resolves.toEqual([]);
+        await expect(stream.count()).resolves.toBe(0);
+        await expect(stream.first()).resolves.toBeUndefined();
+        await expect(stream.last()).resolves.toBeUndefined();
+        await expect(stream.take(5).collect()).resolves.toEqual([]);
+        await expect(stream.takeLast(5).collect()).resolves.toEqual([]);
+        await expect(stream.drain()).resolves.toBeUndefined();
+        await expect(stream[Symbol.asyncIterator]().next()).resolves.toEqual({
+            value: undefined,
+            done: true
+        });
+    });
+
     test('Should work as a original async generator', async () => {
         const generator1 = getGenerator([1, 2, 3]);
         const stream1 = new AsyncStream(generator1());
