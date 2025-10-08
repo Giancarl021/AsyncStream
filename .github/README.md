@@ -34,6 +34,8 @@ console.log(result); // Output: [ [ 4, 16 ], [ 36, 64 ], [ 100, 144 ], [ 196, 25
 
 - [Installation](#installation)
 - [Usage](#usage)
+    - [AsyncStream.from](#asyncstreamfrom)
+    - [AsyncStream.empty](#asyncstreamempty)
     - [`AsyncIterableIterator` functions](#asynciterableiterator-functions)
     - [pack](#pack)
     - [repack](#repack)
@@ -84,6 +86,34 @@ const stream = new AsyncStream(myGenerator());
 Afterwards, you can chain various methods to transform or consume the stream.
 
 > **Important:** The `AsyncStream` class is derived from `AsyncIterableIterator`, so you can use it in any context that requires an `AsyncIterableIterator`.
+
+### AsyncStream.from
+
+Go back to [Summary](#summary)
+
+The `AsyncStream.from` static method creates an `AsyncStream` from an `Array`.
+
+This method is useful when you want to create a stream from a finite set of already known items.
+
+```typescript
+const stream = AsyncStream.from([1, 2, 3, 4, 5]);
+const result = await stream.collect();
+console.log(result); // Output: [ 1, 2, 3, 4, 5 ]
+```
+
+### AsyncStream.empty
+
+Go back to [Summary](#summary)
+
+The `AsyncStream.empty` static method creates an empty `AsyncStream`.
+
+This method is useful when you want to create a stream that has no items.
+
+```typescript
+const stream = AsyncStream.empty<number>();
+const result = await stream.collect();
+console.log(result); // Output: []
+```
 
 ### `AsyncIterableIterator` functions
 
