@@ -151,8 +151,6 @@ const result = await packed.take(2).collect(); // Take the first 2 groups
 console.log(result); // Output: [ [ 1, 2, 3 ], [ 4, 5, 6 ] ]
 ```
 
-> **Warning:** Do not use `pack` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `pack`, first limit the stream using methods like [`take`](#take).
-
 ### repack
 
 Go back to [Summary](#summary)
@@ -175,8 +173,6 @@ const result = await repacked.take(3).collect(); // Take the first 3 groups
 console.log(result); // Output: [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
 ```
 
-> **Warning:** Do not use `repack` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `repack`, first limit the stream using methods like [`take`](#take).
-
 ### flat
 
 Go back to [Summary](#summary)
@@ -198,8 +194,6 @@ const result = await flattened.collect();
 
 console.log(result); // Output: [ 1, 2, 3, 4, 5, 6 ]
 ```
-
-> **Warning:** Do not use `flat` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `flat`, first limit the stream using methods like [`take`](#take).
 
 > **Note:** The `flat` method only flattens one level of nesting. If you have deeper nested arrays, you may need to call `flat` multiple times or use a custom flattening function with [`map`](#map).
 
@@ -247,8 +241,6 @@ const result = await mapped.take(5).collect(); // Take the first 5 squared numbe
 console.log(result); // Output: [ 1, 4, 9, 16, 25 ]
 ```
 
-> **Warning:** Do not use `map` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `map`, first limit the stream using methods like [`take`](#take).
-
 ### filter
 
 Go back to [Summary](#summary)
@@ -270,8 +262,6 @@ const result = await filtered.take(5).collect(); // Take the first 5 even number
 
 console.log(result); // Output: [ 2, 4, 6, 8, 10 ]
 ```
-
-> **Warning:** Do not use `filter` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `filter`, first limit the stream using methods like [`take`](#take).
 
 ### reduce
 
@@ -318,8 +308,6 @@ await stream.take(5).forEach(n => console.log(n)); // Logs the first 5 numbers
 //         4
 //         5
 ```
-
-> **Warning:** Do not use `forEach` on infinite streams, as it will not terminate and will continue to process items indefinitely, potentially leading to memory exhaustion. To safely use `forEach`, first limit the stream using methods like [`take`](#take).
 
 ### collect
 
