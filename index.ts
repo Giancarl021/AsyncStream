@@ -29,11 +29,28 @@ export default class AsyncStream<T = unknown>
      * Creates an AsyncStream instance that yields no items.
      * @typeParam T The type of items in the async generator.
      * @returns A new instance of AsyncStream that yields no items.
+     * @typeParam T The type of items in the async generator.
      */
     public static empty<T = unknown>(): AsyncStream<T> {
         async function* emptyGenerator() {}
 
         return new AsyncStream<T>(emptyGenerator());
+    }
+
+    /**
+     * Creates an AsyncStream instance from a given array.
+     * @param array The array to convert into an async generator.
+     * @returns A new instance of AsyncStream that yields items from the array.
+     * @typeParam T The type of items in the array.
+     */
+    public static from<T = unknown>(array: T[]): AsyncStream<T> {
+        async function* arrayGenerator() {
+            for (const item of array) {
+                yield item;
+            }
+        }
+
+        return new AsyncStream<T>(arrayGenerator());
     }
 
     /**

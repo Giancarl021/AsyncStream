@@ -52,6 +52,14 @@ describe('AsyncStream', () => {
         });
     });
 
+    test('Should create an AsyncStream from an array', async () => {
+        const stream1 = AsyncStream.from([1, 2, 3]);
+        await expect(stream1.collect()).resolves.toEqual([1, 2, 3]);
+
+        const stream2 = AsyncStream.from<string>([]);
+        await expect(stream2.collect()).resolves.toEqual([]);
+    });
+
     test('Should work as a original async generator', async () => {
         const generator1 = getGenerator([1, 2, 3]);
         const stream1 = new AsyncStream(generator1());

@@ -1,6 +1,6 @@
 {
     "name": "@giancarl021/async-stream",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Tools for dealing with streaming data from AsyncIterableIterators",
     "type": "module",
     "main": "lib/index.js",
